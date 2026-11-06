@@ -34,13 +34,17 @@ STATE_JS = """(() => {
   const cards = document.querySelectorAll('li.s-card, li.s-item');
   const sample = [...cards].slice(0, 5).map(c => (c.innerText || '').replace(/\\s+/g, ' ').slice(0, 260));
   const count = (document.querySelector('.srp-controls__count-heading') || {}).innerText || '';
+  const badges = (body.match(/[\\d,]+\\s*sold/gi) || []).slice(0, 5);
   return JSON.stringify({
     title: t.slice(0, 140),
-    url: location.href.slice(0, 160),
+    url: location.href.slice(0, 200),
     bodylen: body.length,
     pardon: /Pardon Our Interruption/i.test(body),
     captcha: /captcha|verify yourself|Security Measure/i.test(t + ' ' + body),
+    signin: /Sign in or Register/i.test(t) || location.href.includes('signin'),
     cards: cards.length,
+    sold_badges: badges.length,
+    badge_sample: badges,
     count: count.replace(/\\s+/g, ' ').slice(0, 120),
     sample
   });
@@ -66,7 +70,9 @@ def main() -> int:
     chrome = sb_cdp.Chrome(**kwargs)
     results = []
 
-    for name, url in (("home", HOME), ("active", ACTIVE), ("sold", SOLD)):
+    for name, url in (("home", HOME), ("active", ACTIVE), ("sold", SOLD),
+                      ("sold_only", SOLD.replace("&LH_Complete=1", "")),
+                      ("complete_only", SOLD.replace("&LH_Sold=1", ""))):
         try:
             chrome.goto(url, timeout=90)
             # SplashUI needs a few seconds to redirect itself.
