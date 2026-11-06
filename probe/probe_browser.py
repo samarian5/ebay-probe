@@ -94,7 +94,39 @@ def main() -> int:
         time.sleep(5)
 
     reached = any(r.get("sold_dates", 0) > 0 for r in results)
-    print(json.dumps({"tier": "browser", "reached_sold_rows": reached}), flush=True)
+
+    # The sold *search* needs a login. Item pages may still print a sold count and a
+    # watcher count while logged out - that would be the whole demand signal.
+    item_report = []
+    try:
+        html = (OUT / "browser_active.html").read_text(encoding="utf-8")
+        ids = []
+        for m in re.finditer(r"/itm/(\d{9,15})", html):
+            if m.group(1) not in ids and m.group(1) != "123456":
+                ids.append(m.group(1))
+        for iid in ids[:3]:
+            url = f"https://www.ebay.com/itm/{iid}"
+            chrome.goto(url, timeout=90)
+            time.sleep(4)
+            txt = chrome.evaluate("document.body.innerText") or ""
+            flat = re.sub(r"\s+", " ", txt)
+            item_report.append({
+                "probe": "item", "item_id": iid,
+                "sold_text": (re.findall(r"[\d,]+\+?\s+sold", flat, re.I) or [])[:3],
+                "watching": (re.findall(r"[\d,]+\s+(?:people (?:are|is) )?watch\w*", flat, re.I) or [])[:3],
+                "available": (re.findall(r"[\d,]+\s+available|Last one|More than [\d,]+ available", flat, re.I) or [])[:3],
+                "best_offer": "Best Offer" in flat,
+                "title": (chrome.evaluate("document.title") or "")[:100],
+            })
+            print(json.dumps(item_report[-1]), flush=True)
+            time.sleep(3)
+    except Exception as e:  # noqa: BLE001
+        print(json.dumps({"probe": "item", "error": f"{type(e).__name__}: {e}"[:200]}), flush=True)
+
+    print(json.dumps({"tier": "browser", "reached_sold_rows": reached,
+                      "items_probed": len(item_report),
+                      "items_with_sold_text": sum(1 for i in item_report if i.get("sold_text"))}),
+          flush=True)
     try:
         chrome.quit()
     except Exception:  # noqa: BLE001
