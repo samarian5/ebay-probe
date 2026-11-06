@@ -1,0 +1,46 @@
+{
+  "t": "2026-11-06T20:26:20Z",
+  "pages": [
+    {
+      "name": "amz_search_1",
+      "bytes": 1710107,
+      "gz": 270821,
+      "asins": 57,
+      "cards": 48,
+      "captcha": false
+    },
+    {
+      "name": "amz_search_2",
+      "bytes": 1349604,
+      "gz": 253739,
+      "asins": 25,
+      "cards": 16,
+      "captcha": false
+    },
+    {
+      "name": "amz_search_3",
+      "bytes": 1881839,
+      "gz": 265946,
+      "asins": 65,
+      "cards": 48,
+      "captcha": false
+    },
+    {
+      "name": "ebay_search_1",
+      "bytes": 1895,
+      "gz": 1013,
+      "asins": 0,
+      "cards": 0,
+      "captcha": false
+    },
+    {
+      "name": "amz_dp_1",
+      "bytes": 2483248,
+      "gz": 445735,
+      "asins": 19,
+      "cards": 0,
+      "captcha": false
+    }
+  ],
+  "dp_asin": "B00ET5VMTU"
+}
