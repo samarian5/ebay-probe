@@ -1,0 +1,122 @@
+{
+  "t": "2026-11-06T20:15:41Z",
+  "probes": [
+    {
+      "name": "ebay_cold",
+      "status": 403,
+      "bytes": 1895,
+      "final_url": "https://www.ebay.com/sch/i.html?_nkw=dewalt+20v+drill&_ipg=60",
+      "title": "Error Page | eBay",
+      "markers": {
+        "data-asin": 0,
+        "s-card": 0,
+        "captcha": 0,
+        "price_offscreen": 0,
+        "productTitle": 0
+      }
+    },
+    {
+      "name": "ebay_home",
+      "status": 403,
+      "bytes": 1895,
+      "final_url": "https://www.ebay.com/",
+      "title": "Error Page | eBay",
+      "markers": {
+        "data-asin": 0,
+        "s-card": 0,
+        "captcha": 0,
+        "price_offscreen": 0,
+        "productTitle": 0
+      }
+    },
+    {
+      "name": "ebay_warm_search",
+      "status": 403,
+      "bytes": 1895,
+      "final_url": "https://www.ebay.com/sch/i.html?_nkw=dewalt+20v+drill&_ipg=60",
+      "title": "Error Page | eBay",
+      "markers": {
+        "data-asin": 0,
+        "s-card": 0,
+        "captcha": 0,
+        "price_offscreen": 0,
+        "productTitle": 0
+      }
+    },
+    {
+      "name": "amz_cold_chrome",
+      "status": 503,
+      "bytes": 2671,
+      "final_url": "https://www.amazon.com/s?k=dewalt+20v+drill",
+      "title": "Sorry! Something went wrong!",
+      "markers": {
+        "data-asin": 0,
+        "s-card": 0,
+        "captcha": 1,
+        "price_offscreen": 0,
+        "productTitle": 0
+      },
+      "impersonate": "chrome"
+    },
+    {
+      "name": "amz_cold_safari",
+      "status": 503,
+      "bytes": 2671,
+      "final_url": "https://www.amazon.com/s?k=dewalt+20v+drill",
+      "title": "Sorry! Something went wrong!",
+      "markers": {
+        "data-asin": 0,
+        "s-card": 0,
+        "captcha": 1,
+        "price_offscreen": 0,
+        "productTitle": 0
+      },
+      "impersonate": "safari"
+    },
+    {
+      "name": "amz_cold_edge",
+      "status": 503,
+      "bytes": 2671,
+      "final_url": "https://www.amazon.com/s?k=dewalt+20v+drill",
+      "title": "Sorry! Something went wrong!",
+      "markers": {
+        "data-asin": 0,
+        "s-card": 0,
+        "captcha": 1,
+        "price_offscreen": 0,
+        "productTitle": 0
+      },
+      "impersonate": "edge101"
+    },
+    {
+      "name": "amz_warm_chrome",
+      "status": 200,
+      "bytes": 1773004,
+      "final_url": "https://www.amazon.com/s?k=dewalt+20v+drill",
+      "title": "Amazon.com : dewalt 20v drill",
+      "markers": {
+        "data-asin": 129,
+        "s-card": 286,
+        "captcha": 0,
+        "price_offscreen": 117,
+        "productTitle": 0
+      },
+      "impersonate": "chrome"
+    },
+    {
+      "name": "amz_mobile_warm",
+      "status": 200,
+      "bytes": 1730967,
+      "final_url": "https://www.amazon.com/gp/aw/s?k=dewalt+20v+drill",
+      "title": "Amazon.com : dewalt 20v drill",
+      "markers": {
+        "data-asin": 126,
+        "s-card": 290,
+        "captcha": 0,
+        "price_offscreen": 113,
+        "productTitle": 0
+      },
+      "impersonate": "chrome"
+    }
+  ]
+}
