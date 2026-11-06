@@ -1,0 +1,86 @@
+{
+  "ip": {
+    "ip": "132.196.32.56",
+    "city": "Des Moines",
+    "region": "Iowa",
+    "country": "US",
+    "loc": "41.6005,-93.6091",
+    "org": "AS8075 Microsoft Corporation",
+    "postal": "50309",
+    "timezone": "America/Chicago",
+    "readme": "https://ipinfo.io/missingauth"
+  },
+  "probes": [
+    {
+      "name": "ebay_search",
+      "url": "https://www.ebay.com/sch/i.html?_nkw=dewalt+20v+drill&_ipg=60",
+      "t": "2026-11-06T20:12:30Z",
+      "status": 403,
+      "bytes": 1895,
+      "seconds": 0.24,
+      "final_url": "https://www.ebay.com/sch/i.html?_nkw=dewalt+20v+drill&_ipg=60",
+      "title": "Error Page | eBay",
+      "markers": {
+        "s-card": 0,
+        "s-item__title": 0,
+        "signin": 0
+      }
+    },
+    {
+      "name": "amazon_search",
+      "url": "https://www.amazon.com/s?k=dewalt+20v+drill",
+      "t": "2026-11-06T20:12:33Z",
+      "status": 200,
+      "bytes": 2259,
+      "seconds": 0.23,
+      "final_url": "https://www.amazon.com/s?k=dewalt+20v+drill",
+      "title": "&nbsp;",
+      "markers": {
+        "data-asin=": 0,
+        "s-result-item": 0,
+        "captcha": 0,
+        "robot": 0
+      }
+    },
+    {
+      "name": "amazon_search_mobile",
+      "url": "https://www.amazon.com/s?k=dewalt+20v+drill",
+      "t": "2026-11-06T20:12:36Z",
+      "status": 503,
+      "bytes": 2671,
+      "seconds": 0.06,
+      "final_url": "https://www.amazon.com/s?k=dewalt+20v+drill",
+      "title": "Sorry! Something went wrong!",
+      "markers": {}
+    },
+    {
+      "name": "amazon_dp",
+      "url": "https://www.amazon.com/dp/B00ET5VMTU",
+      "t": "2026-11-06T20:12:39Z",
+      "status": 200,
+      "bytes": 3781,
+      "seconds": 0.07,
+      "final_url": "https://www.amazon.com/dp/B00ET5VMTU",
+      "title": "Amazon.com",
+      "markers": {
+        "productTitle": 0,
+        "priceblock": 0,
+        "captcha": 1
+      }
+    },
+    {
+      "name": "ebay_itm",
+      "url": "https://www.ebay.com/itm/285690000000",
+      "t": "2026-11-06T20:12:42Z",
+      "status": 403,
+      "bytes": 1895,
+      "seconds": 0.09,
+      "final_url": "https://www.ebay.com/itm/285690000000",
+      "title": "Error Page | eBay",
+      "markers": {
+        "binBtn": 0,
+        "sold": 0
+      }
+    }
+  ]
+}
